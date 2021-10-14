@@ -37,11 +37,11 @@
             <tr v-for="position in positions" :key="position.name">
               <td>{{position.name}} </td>
               <td>1€</td>
-              <td><button role="button" class="btn btn-default btn-neue-rechnung">Löschen</button></td>
+              <td><button role="button" class="btn btn-default btn-neue-rechnung" v-on:click="removePosition(position)">Löschen</button></td>
             </tr>
             <tr>
               <th><b>Summe:</b></th>
-              <th> €</th>
+              <th>{{sum}} €</th>
             </tr>
             </tbody>
           </table>
@@ -68,6 +68,7 @@ export default {
       code: '',
       product: '',
       positions: [],
+      sum: 0.0,
   };
 },
   methods: {
@@ -75,10 +76,21 @@ export default {
       try {
         const response = await this.$http.get('http://localhost:8081/product/code/' + code);
         this.positions.push(response.data);
+        this.calculateSum();
       } catch(error) {
         console.log(error);
       }
-    }
+    },
+    removePosition: function(position) {
+      this.positions.splice(this.positions.indexOf(position), 1);
+      this.calculateSum();
+    },
+    calculateSum: function() {
+      this.sum = 0.0;
+      this.positions.forEach(value => {
+        this.sum = this.sum + value.amount;
+      });
+    },
   }
 }
 </script>
