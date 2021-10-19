@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
 import axios from 'axios';
-
+import VueSimpleAlert from "vue-simple-alert";
 import App from './App.vue';
+
+Vue.use(VueSimpleAlert);
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
