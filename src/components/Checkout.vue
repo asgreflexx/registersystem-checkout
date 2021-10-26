@@ -73,7 +73,7 @@ export default {
     },
     async getProductByCode(code) {
       try {
-        const response = await this.$http.get('http://localhost:8081/product/code/' + code);
+        const response = await this.$http.get('http://85.235.66.255:8080/product/code/' + code);
         let newPosition = response.data;
         let samePosition = this.positions.filter(p => p.id === newPosition.id);
 
