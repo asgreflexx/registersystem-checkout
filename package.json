@@ -9,9 +9,12 @@
     "serve:standalone": "vue-cli-service serve --mode standalone"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "core-js": "^3.6.5",
+    "md-svg-vue": "^1.0.20",
     "single-spa-vue": "^2.1.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-simple-alert": "^1.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
