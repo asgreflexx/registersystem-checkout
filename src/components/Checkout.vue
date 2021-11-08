@@ -123,7 +123,7 @@ export default {
         });
         bill.totalPrice = this.sum;
 
-        await this.$http.post('http://localhost:8081/bill/', bill).then(() => {
+        await this.$http.post('http://85.235.66.255:8080/bill/', bill).then(() => {
           this.$alert('Bill was successfully booked!').then(() => {
             this.positions = [];
             this.positionsOnBill = [];
